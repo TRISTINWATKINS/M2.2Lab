@@ -10,8 +10,11 @@
  * This function prints the string 'Hello World' to the console
  */
 export function helloWorld() {
-    console.log('Hello World');
+  alert("Hello World");  //Chnaged to alert because I was told too
 }
+
+
+
 
 /**
  * This function adds two numbers together and returns the sum. This demonstrates

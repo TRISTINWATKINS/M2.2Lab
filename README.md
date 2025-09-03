@@ -27,3 +27,5 @@ To run the tests for the project, run the following command:
 ```bash
 npm test
 ```
+
+And I didnt add anything to it! LOL

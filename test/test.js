@@ -1,17 +1,19 @@
 import {helloWorld, add} from '../js/main.js';
-// Import the sinon library to allow us to create a spy on the console.log function
 import sinon from 'sinon';
+
+if (typeof global.alert !== 'function') {
+  global.alert = () => {};
+}
 
 QUnit.module('main.js tests', function() {
 
-    QUnit.test('helloWorld should print Hello World to the console', function(assert) {
-        //Arrange
-        const consoleSpy = sinon.spy(console, 'log');
-        //Act
+    //Chnaged this test to match the alreat that way it proints off correctly
+
+    QUnit.test('helloWorld should show an alert with Hello World', function(assert) {
+        const alertStub = sinon.stub(global, 'alert');
         helloWorld();
-        //Assert
-        assert.ok(consoleSpy.calledWith('Hello World'), 'console.log should be called with Hello World');
-        consoleSpy.restore();
+        assert.ok(alertStub.calledWith('Hello World'), 'alert should be called with Hello World');
+        alertStub.restore();
     });
 
     QUnit.test('add should return the sum of two numbers', function(assert) {
